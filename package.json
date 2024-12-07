@@ -1,0 +1,46 @@
+{
+  "name": "wat-js",
+  "version": "0.8.1",
+  "description": "An intuitive, browser-based JavaScript library for seamless interaction with Apple mobile devices using WebUSB technology.",
+  "homepage": "https://github.com/0x06060606/wat-js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0x06060606/wat-js"
+  },
+  "bugs": {
+    "url": "https://github.com/0x06060606/wat-js/issues"
+  },
+  "main": "lib/wat-js.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint --ext .ts src/",
+    "test": "jest --config jestconfig.json"
+  },
+  "author": "John Bell",
+  "license": "Copyright 2024 Bell Cyber Security LLC.",
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "eslint": "^8.4.1",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-jsdoc": "^37.2.1",
+    "eslint-plugin-prefer-arrow": "^1.2.2",
+    "jest": "^26.6.0",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.1",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@types/w3c-web-usb": "^1.0.4"
+  }
+}
